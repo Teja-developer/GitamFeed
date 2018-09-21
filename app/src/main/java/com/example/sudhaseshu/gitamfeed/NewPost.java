@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +24,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class NewPost extends AppCompatActivity {
 
@@ -52,16 +56,20 @@ public class NewPost extends AppCompatActivity {
         mTimeDisplay.setText(currentDateTimeString);
 
 
-        ImageButton send = findViewById(R.id.send_post);
+        ImageView send = findViewById(R.id.send_post);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText content = findViewById(R.id.problem_content);
-                final String content_string =  content.getText().toString();
+                String content_string =  content.getText().toString();
 
                 TextView title = findViewById(R.id.title);
                 String title_string = title.getText().toString();
-
+                List<String> words = Arrays.asList("head", "now");
+                for (String word : words) {
+                    Pattern rx = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE);
+                    content_string = rx.matcher(content_string).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
+                }
                 Log.i("app",content_string);
                 addPost(content_string,title_string);
             }
