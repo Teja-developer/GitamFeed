@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
     Button website;
+    ProgressBar progressBar;
 
     @Override
     protected void onStart() {
@@ -53,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        progressBar = findViewById(R.id.progressBar2);
         website=findViewById(R.id.website_link);
         website.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
             if (result.isSuccess()){
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
+                progressBar.setVisibility(View.VISIBLE);
             }
             else{
                 Toast.makeText(getApplicationContext(),"Wrong with the details:(",Toast.LENGTH_SHORT).show();
