@@ -1,12 +1,17 @@
 package com.example.sudhaseshu.gitamfeed;
 
 import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -45,7 +50,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,Notice.OnFragmentInteractionListener,Discussion.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,Notice.OnFragmentInteractionListener,Discussion.OnFragmentInteractionListener,Bookmark_Fragment.OnFragmentInteractionListener{
 
     ViewPager viewPager;
     FragmentTransaction fragmentTransaction;
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ImageView pht;
     public FirebaseAuth mAuth;
     public TextView usrnm,emaild;
+    Boolean connect;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,7 +180,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.addFlags(flags);
         return intent;
     }
+public void bookmark()
+{
 
+    Bookmark_Fragment fragment1 = new Bookmark_Fragment();
+    FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.bookmark_recyclerview,fragment1);
+    transaction.commit();
+
+}
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
@@ -182,12 +196,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.gitam_feed:
                 break;
             case R.id.bookmarks:
-                Intent intent = new Intent(this,Bookmarks.class);
-                startActivity(intent);
+                bookmark();
                 break;
             case R.id.nav_slideshow:
                 break;
             case R.id.nav_manage:
+                Uri uriUrl = Uri.parse("https://drive.google.com/drive/folders/1t277sx-l3PA4ZCaA6IW53O6Vwxf4QDTG?usp=sharing");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
                 break;
             case R.id.about:
                 Intent intent1 = new Intent(this,About.class);
@@ -199,4 +215,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return false;
     }
+
+    private boolean haveNetworkConnection() {
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+        for (NetworkInfo ni : netInfo) {
+            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                if (ni.isConnected())
+                    haveConnectedWifi = true;
+            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (ni.isConnected())
+                    haveConnectedMobile = true;
+        }
+        return haveConnectedWifi || haveConnectedMobile;
+    }
+
 }

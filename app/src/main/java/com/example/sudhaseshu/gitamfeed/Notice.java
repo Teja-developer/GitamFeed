@@ -125,6 +125,18 @@ public class Notice extends Fragment {
                     }
                 });
 
+                viewHolder.mview.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, model.description);
+                        sendIntent.setType("text/plain");
+                        startActivity(sendIntent);
+                        return true;
+                    }
+                });
+
             }
         };
         news_view.setAdapter(firebaseRecyclerAdapter);
