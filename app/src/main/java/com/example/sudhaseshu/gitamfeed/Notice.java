@@ -114,13 +114,14 @@ public class Notice extends Fragment {
         FirebaseRecyclerAdapter<NewsModel,NewsItemsAdapter> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<NewsModel, NewsItemsAdapter>(NewsModel.class,R.layout.news_list_item, NewsItemsAdapter.class,databaseReference) {
             @Override
             protected void populateViewHolder(final NewsItemsAdapter viewHolder, final NewsModel model, final int position) {
-                viewHolder.setDetails(getActivity(),model.getDescription(),model.getImage());
+                viewHolder.setDetails(getActivity(),model.getHeading(),model.getImage());
                 viewHolder.mview.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                             Intent intent = new Intent(Notice.this.getActivity(),MoreInfo.class);
                             intent.putExtra("photo",model.image);
                             intent.putExtra("descrip",model.description);
+                            intent.putExtra("head",model.heading);
                             startActivity(intent);
                     }
                 });

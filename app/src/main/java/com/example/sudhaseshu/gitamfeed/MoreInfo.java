@@ -13,6 +13,7 @@ public class MoreInfo extends AppCompatActivity {
 
     TextView descrpt;
     ImageView phtoo;
+    TextView hea;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class MoreInfo extends AppCompatActivity {
         Picasso.get().load(getIntent().getStringExtra("photo")).into(phtoo);
         descrpt = findViewById(R.id.more);
         descrpt.setText(getIntent().getStringExtra("descrip"));
+        hea = findViewById(R.id.head);
+        hea.setText(getIntent().getStringExtra("head"));
 
     }
 }

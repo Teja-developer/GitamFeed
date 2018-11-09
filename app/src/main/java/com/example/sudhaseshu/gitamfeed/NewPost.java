@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -56,7 +57,7 @@ public class NewPost extends AppCompatActivity {
         mTimeDisplay.setText(currentDateTimeString);
 
 
-        ImageView send = findViewById(R.id.send_post);
+        Button send = findViewById(R.id.send_post);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

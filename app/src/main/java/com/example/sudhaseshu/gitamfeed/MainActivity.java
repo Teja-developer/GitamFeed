@@ -196,7 +196,8 @@ public void bookmark()
             case R.id.gitam_feed:
                 break;
             case R.id.bookmarks:
-                bookmark();
+                Intent intent = new Intent(this,BookmarkActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_slideshow:
                 break;

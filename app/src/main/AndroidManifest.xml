@@ -37,10 +37,11 @@
             android:name=".Read_Post"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MoreInfo" />
-        <activity android:name=".About"
+        <activity
+            android:name=".About"
             android:label="About"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".BookmarkActivity"></activity>
     </application>
 
 </manifest>

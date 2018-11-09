@@ -21,7 +21,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/Title_problem"
+                android:id="@+id/Title"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="Title"
@@ -30,29 +30,29 @@
                 android:textSize="32sp" />
 
             <TextView
-                android:id="@+id/day"
+                android:id="@+id/Days"
                 android:text="11"
                 android:paddingStart="8dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/Title_problem" />
+                app:layout_constraintTop_toBottomOf="@id/Title" />
 
 
             <TextView
-                android:id="@+id/month"
+                android:id="@+id/Mon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="JULY 21:30"
                 android:paddingStart="4dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="8dp"
-                app:layout_constraintLeft_toRightOf="@id/day"
-                app:layout_constraintTop_toBottomOf="@id/Title_problem" />
+                app:layout_constraintLeft_toRightOf="@id/Days"
+                app:layout_constraintTop_toBottomOf="@id/Title" />
 
             <TextView
-                android:id="@+id/problem"
+                android:id="@+id/Prob"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
@@ -60,24 +60,9 @@
                 android:paddingRight="8dp"
                 android:maxLines="3"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/month"
+                app:layout_constraintTop_toBottomOf="@id/Mon"
                 android:text="This is how the text in the cardview looks like this text is the data which is stored in firebase and we can modify it."/>
 
-            <Button
-                android:id="@+id/like"
-                android:elevation="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-            <Button
-                android:id="@+id/bookmark"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 

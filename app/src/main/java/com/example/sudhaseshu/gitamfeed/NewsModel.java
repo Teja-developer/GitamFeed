@@ -2,10 +2,18 @@ package com.example.sudhaseshu.gitamfeed;
 
 public class NewsModel {
 
-    String description, image;
+    String description, image, heading;
 
     public String getDescription() {
         return description;
+    }
+
+    public String getHeading() {
+        return heading;
+    }
+
+    public void setHeading(String heading) {
+        this.heading = heading;
     }
 
     public void setDescription(String description) {
