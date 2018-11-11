@@ -15,6 +15,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_mono_medium"
         android:text="Gitam Feed"
+
         android:textColor="#000000"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="monospace"
+            android:textStyle="bold"
             android:text="Why this app should be used"
             android:textAllCaps="false"
             android:textColor="#546e7a"
@@ -46,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="monospace"
-            android:text="* Support developer "
+            android:text="* Provide upto date news "
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/Description" />
 
@@ -55,8 +57,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            app:layout_constraintRight_toRightOf="parent"
             android:fontFamily="monospace"
-            android:text="* feature2 "
+            android:text="* User friendly - allows user to\n  add content and make suggestions "
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/feature1" />
 
@@ -66,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="monospace"
-            android:text="* feature3 "
+            android:text="* Supports Developer "
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/feature2" />
 
@@ -84,6 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:fontFamily="monospace"
+            android:textStyle="bold"
             android:text="Why enable Cloud sync"
             android:textColor="#546e7a"
             app:layout_constraintTop_toBottomOf="@id/feature3" />
@@ -94,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="monospace"
-            android:text="* feature1 "
+            android:text="* Avoids wasting time in managing\n  data "
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/Description2" />
 
@@ -104,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="monospace"
-            android:text="* feature2 "
+            android:text="* Effective backup and restoration "
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/feature1_cloud" />
 
@@ -114,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="monospace"
-            android:text="* feature3 "
+            android:text="* Provides Data Security "
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/feature2_cloud" />
     </android.support.constraint.ConstraintLayout>

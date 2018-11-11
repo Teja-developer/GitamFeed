@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
@@ -35,6 +36,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -68,6 +70,7 @@ public class Discussion extends Fragment {
     private OnFragmentInteractionListener mListener;
     FirebaseFirestore db;
     private LinearLayoutManager mLayoutManager;
+    public SwipeRefreshLayout swipeRefreshLayout ;
 
     public Discussion() {
         // Required empty public constructor
@@ -106,6 +109,14 @@ public class Discussion extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_discussion, container, false);
+        swipeRefreshLayout = view.findViewById(R.id.swiperefresh);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchthedata(0);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -158,6 +169,11 @@ public class Discussion extends Fragment {
 
     }
 
+    private void fetchthedata(int i) {
+        postItemsList.clear();
+        displayPosts();
+        swipeRefreshLayout.setRefreshing(false);
+    }
 
 
     @Override
@@ -190,7 +206,7 @@ public class Discussion extends Fragment {
 
                                 postItemsList.add(p);
                             }
-
+                            
                             Log.i("app","the content is "+postItemsList.get(0).getPost_content());
                             adapter.notifyDataSetChanged();
 

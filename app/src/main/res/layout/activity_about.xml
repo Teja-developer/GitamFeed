@@ -130,10 +130,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
+        android:id="@+id/card2"
         android:background="@color/white"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        android:minHeight="200dp"
+        android:minHeight="150dp"
         app:layout_constraintTop_toBottomOf="@id/card1">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -141,12 +142,48 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="kjndklnbklndsfklnalkjnbkndkbsdknlnblsdnbkldsnbkljndksnbklsd"
+                android:text="GITAM feed is the go-to app for all GITAMITES scouting for great news about our sublime campus.This app includes all the spot-on information about the contemporary and upcoming events/fests being organised at our prestigious institution. This app also includes all the materials required by the students."
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:letterSpacing="0.15"
                 android:textSize="17sp"/>
         </android.support.constraint.ConstraintLayout>
+
     </android.support.design.card.MaterialCardView>
 
+    <android.support.design.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/white"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:minHeight="90dp"
+        app:layout_constraintTop_toBottomOf="@id/card2">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="Any queries or suggestions :"
+                android:textColor="@color/black"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:text="Email us at jatedevelopers@gmail.com"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/t"
+                android:textSize="17dp"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.design.card.MaterialCardView>
 </android.support.constraint.ConstraintLayout>

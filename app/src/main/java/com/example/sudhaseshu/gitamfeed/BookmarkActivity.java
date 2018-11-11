@@ -68,15 +68,16 @@ public class BookmarkActivity extends AppCompatActivity {
                                 p.setId(documentSnapshot.getId());
                                 Log.i("app",p.getId().toString());
                                 bookmarkItemsList.add(p);
+                                Log.i("app"," "+bookmarkItemsList.size());
+                                adapter = new PostItemsAdapter(getApplicationContext(), bookmarkItemsList);
+                                Log.i("app",bookmarkItemsList.toString()+" lkfasjdflasdj");
+                                recyclerView.setAdapter(adapter);
                             }
                         });
 
                         adapter.notifyDataSetChanged();
                     }
-                    adapter = new PostItemsAdapter(getApplicationContext(), bookmarkItemsList);
-                    Log.i("app",bookmarkItemsList.toString()+" lkfasjdflasdj");
-                    recyclerView.setAdapter(adapter);
-                }
+                    }
             }
         });
     }
